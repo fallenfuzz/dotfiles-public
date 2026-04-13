@@ -14,6 +14,7 @@ automatically-unhide-macos-hidden-apps = true
 [workspace-to-monitor-force-assignment]
 A = ['Mi TV', 'Built-in Retina Display']
 T = ['Mi TV', 'Built-in Retina Display']
+G = ['Mi TV', 'Built-in Retina Display']
 B = ['Mi TV', 'Built-in Retina Display']
 C = ['Mi TV', 'Built-in Retina Display']
 E = ['Mi TV', 'Built-in Retina Display']
@@ -32,7 +33,8 @@ M = ['DELL S2721DGF', 'Mi TV']
 [mode.main.binding]
 # Named workspaces — switch and launch app
 alt-a = ['workspace A', "exec-and-forget osascript -e 'if application \"App Store\" is not frontmost then tell application \"App Store\" to activate'"]
-alt-t = ['workspace T', "exec-and-forget osascript -e 'if application \"iTerm\" is not frontmost then tell application \"iTerm\" to activate'"]
+alt-t = ['workspace T', "exec-and-forget osascript -e 'if application \"Ghostty\" is not frontmost then tell application \"Ghostty\" to activate'"]
+alt-g = ['workspace G', "exec-and-forget osascript -e 'if application \"Termius\" is not frontmost then tell application \"Termius\" to activate'"]
 alt-b = ['workspace B', "exec-and-forget osascript -e 'if application \"Google Chrome\" is not frontmost then tell application \"Google Chrome\" to activate'"]
 alt-c = ['workspace C', "exec-and-forget osascript -e 'if application \"Claude\" is not frontmost then tell application \"Claude\" to activate'"]
 alt-e = ['workspace E', "exec-and-forget osascript -e 'if application \"Visual Studio Code\" is not frontmost then tell application \"Visual Studio Code\" to activate'"]
@@ -47,6 +49,7 @@ alt-m = 'workspace M'
 # Move window to named workspace
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-t = 'move-node-to-workspace T'
+alt-shift-g = 'move-node-to-workspace G'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C'
 alt-shift-e = 'move-node-to-workspace E'
@@ -100,6 +103,15 @@ alt-comma = 'layout accordion horizontal vertical'
 # Misc
 alt-shift-q = 'close'
 alt-shift-r = 'reload-config'
+
+# Auto-assign apps to workspaces
+[[on-window-detected]]
+if.app-name-regex-substring = 'Termius'
+run = 'move-node-to-workspace G'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Ghostty'
+run = 'move-node-to-workspace T'
 
 # Auto-float apps
 [[on-window-detected]]
