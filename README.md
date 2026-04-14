@@ -62,6 +62,26 @@ z  # Searches frequently access directory
 ^t  # Searches directories
 ```
 
+## Ghostty + Tmux
+
+Ghostty is configured to auto-start a tmux session on launch. The tmux config uses Catppuccin Mocha theme with Nerd Font glyphs for the status bar.
+
+**Requirements:**
+- [Ghostty](https://ghostty.org)
+- JetBrainsMono Nerd Font
+
+```bash
+# Mac
+brew install --cask font-jetbrains-mono-nerd-font
+
+# Linux
+mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip JetBrainsMono.zip && fc-cache -fv
+```
+
+Set `JetBrainsMono Nerd Font` as your terminal font, otherwise status bar icons will render as boxes.
+
 ## Tmux
 ```
 tmux new -s <session name>  # create
